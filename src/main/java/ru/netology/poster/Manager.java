@@ -1,7 +1,6 @@
 package ru.netology.poster;
 
 
-
 public class Manager {
     private int resultLength = 10;
     private MovieList[] movies = new MovieList[0];
@@ -27,8 +26,8 @@ public class Manager {
         this.resultLength = resultLength;
     }
 
-    public  MovieList[] findLast(){
-        if(resultLength > movies.length){
+    public MovieList[] findLast() {
+        if (resultLength > movies.length) {
             resultLength = movies.length;
         }
         MovieList[] result = new MovieList[resultLength];
@@ -37,10 +36,8 @@ public class Manager {
             result[i] = movies[index];
         }
         return result;
-
-
+        
     }
-
 
 }
 

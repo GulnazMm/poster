@@ -5,7 +5,7 @@ import ru.netology.poster.MovieList;
 
 
 public class ManagerTest {
-    MovieList first= new MovieList();
+    MovieList first = new MovieList();
     MovieList second = new MovieList();
     MovieList third = new MovieList();
     MovieList fourth = new MovieList();
@@ -13,6 +13,7 @@ public class ManagerTest {
     MovieList sixth = new MovieList();
     MovieList seventh = new MovieList();
     Manager manager = new Manager();
+
     @Test
     public void addTest() {
 
@@ -29,8 +30,9 @@ public class ManagerTest {
         Assertions.assertArrayEquals(expected, actual);
 
     }
+
     @Test
-    public void findLastTest(){
+    public void findLastTest() {
 
         manager.add(first);
         manager.add(second);
@@ -41,8 +43,34 @@ public class ManagerTest {
         manager.add(seventh);
 
         MovieList[] actual = manager.findLast();
-        MovieList[] expected = {seventh,sixth,fifth, fourth,third,second,first};
-        Assertions.assertArrayEquals(expected,actual);
+        MovieList[] expected = {seventh, sixth, fifth, fourth, third, second, first};
+        Assertions.assertArrayEquals(expected, actual);
+
+    }
+
+    @Test
+    public void addSecondTest() {
+
+        manager.add(second);
+
+
+        MovieList[] actual = manager.findAll();
+        MovieList[] expected = {second};
+        Assertions.assertArrayEquals(expected, actual);
+
+    }
+
+    @Test
+    public void findLastSixts() {
+
+        manager.add(first);
+        manager.add(second);
+        manager.add(third);
+
+
+        MovieList[] actual = manager.findLast();
+        MovieList[] expected = {third, second, first};
+        Assertions.assertArrayEquals(expected, actual);
 
     }
 }
