@@ -2,8 +2,16 @@ package ru.netology.poster;
 
 
 public class Manager {
-    private int resultLength = 10;
+    private int resultLength;
     private MovieList[] movies = new MovieList[0];
+
+    public Manager() {
+        resultLength = 10;
+    }
+
+    public Manager(int resultLength) {
+        this.resultLength = resultLength;
+    }
 
     public void add(MovieList movie) {
         int length = movies.length + 1;
@@ -19,24 +27,18 @@ public class Manager {
     }
 
 
-    public Manager() {
-    }
-
-    public Manager(int resultLength) {
-        this.resultLength = resultLength;
-    }
-
     public MovieList[] findLast() {
-        if (resultLength > movies.length) {
-            resultLength = movies.length;
+        MovieList[] result;
+        if (resultLength < movies.length) {
+            result = new MovieList[resultLength];
+        } else {
+            result = new MovieList[movies.length];
         }
-        MovieList[] result = new MovieList[resultLength];
         for (int i = 0; i < result.length; i++) {
             int index = movies.length - i - 1;
             result[i] = movies[index];
         }
         return result;
-        
     }
 
 }

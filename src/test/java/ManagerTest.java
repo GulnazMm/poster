@@ -12,6 +12,7 @@ public class ManagerTest {
     MovieList fifth = new MovieList();
     MovieList sixth = new MovieList();
     MovieList seventh = new MovieList();
+
     Manager manager = new Manager();
 
     @Test
@@ -32,24 +33,7 @@ public class ManagerTest {
     }
 
     @Test
-    public void findLastTest() {
-
-        manager.add(first);
-        manager.add(second);
-        manager.add(third);
-        manager.add(fourth);
-        manager.add(fifth);
-        manager.add(sixth);
-        manager.add(seventh);
-
-        MovieList[] actual = manager.findLast();
-        MovieList[] expected = {seventh, sixth, fifth, fourth, third, second, first};
-        Assertions.assertArrayEquals(expected, actual);
-
-    }
-
-    @Test
-    public void addSecondTest() {
+    public void addSecondMovie() {
 
         manager.add(second);
 
@@ -60,16 +44,34 @@ public class ManagerTest {
 
     }
 
+
     @Test
-    public void findLastSixts() {
+    public void findLastTest() {
 
         manager.add(first);
         manager.add(second);
         manager.add(third);
+        manager.add(fourth);
+        manager.add(fifth);
+        manager.add(sixth);
+        manager.add(seventh);
 
 
         MovieList[] actual = manager.findLast();
-        MovieList[] expected = {third, second, first};
+        MovieList[] expected = {seventh, sixth, fifth, fourth, third, second, first};
+        Assertions.assertArrayEquals(expected, actual);
+
+    }
+
+
+    @Test
+    public void findLast() {
+        manager.add(first);
+        manager.add(second);
+
+
+        MovieList[] actual = manager.findLast();
+        MovieList[] expected = {second, first};
         Assertions.assertArrayEquals(expected, actual);
 
     }
